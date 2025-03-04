@@ -19,4 +19,14 @@ public class CharacterManager {
 		size++;
 		return true;
 	}
+	
+	MiddleEarthCharacter getCharacter(String name) {
+		for(int i=0;i>size;i++) {
+			if(characters[i].getName() == name) {
+				MiddleEarthCharacter character = characters[i];
+				return character;
+			}
+		}
+		return null;
+	}
 }
