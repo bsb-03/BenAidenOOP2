@@ -91,7 +91,8 @@ public abstract class MiddleEarthCharacter {
  * Elf class
  */
 class Elf extends MiddleEarthCharacter {
-
+	private String[] effective = {"Orc"};
+	private String[] ineffective = {"Elf", "Dwarf"};
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		// TODO Auto-generated method stub
@@ -108,7 +109,9 @@ class Elf extends MiddleEarthCharacter {
 }
 
 class Dwarf extends MiddleEarthCharacter {
-
+	private String[] effective = {"Elf"};
+	private String[] ineffective = {"Wizard", "Dwarf"};
+	
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		// TODO Auto-generated method stub
@@ -125,7 +128,9 @@ class Dwarf extends MiddleEarthCharacter {
 }
 
 class Human extends MiddleEarthCharacter {
-
+	private String[] effective = {"Wizard"};
+	private String[] ineffective = {"Orc", "Human"};
+	
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		// TODO Auto-generated method stub
@@ -142,7 +147,9 @@ class Human extends MiddleEarthCharacter {
 }
 
 class Orc extends MiddleEarthCharacter {
-
+	private String[] effective = {"Human"};
+	private String[] ineffective = {"Elf", "Orc"};
+	
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		// TODO Auto-generated method stub
@@ -160,7 +167,9 @@ class Orc extends MiddleEarthCharacter {
 }
 
 class Wizard extends MiddleEarthCharacter {
-
+	private String[] effective = {"Dwarf"};
+	private String[] ineffective = {"Human", "Wizard"};
+	
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		// TODO Auto-generated method stub
