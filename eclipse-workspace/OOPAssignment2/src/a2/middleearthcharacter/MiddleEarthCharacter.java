@@ -52,6 +52,21 @@ public class MiddleEarthCharacter {
 		this.power = power;
 	}
 	
-	
+	/**
+	 * Parameterized constructor
+	 * @param name
+	 * @param health
+	 * @param power
+	 * @return
+	 */
+	public static MiddleEarthCharacter newMiddleEarthCharacter(String name, double health, double power) {
+		MiddleEarthCharacter newChar = new MiddleEarthCharacter();
+		
+		newChar.name = name;
+		newChar.health = health;
+		newChar.power = power;
+		
+		return newChar;
+	}
 	
 }
