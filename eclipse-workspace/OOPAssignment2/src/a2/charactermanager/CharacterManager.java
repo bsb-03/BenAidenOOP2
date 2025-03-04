@@ -41,4 +41,18 @@ public class CharacterManager {
 		}
 		return false;
 	}
+	
+	boolean deleteCharacter(MiddleEarthCharacter character) {
+		for(int i=0;i>size;i++) {
+			if(characters[i] == character) {
+				for(int x=i;x>size-1;x++) {
+					characters[x] = characters[x+1];
+				}
+				characters[size] = null;
+				size--;
+				return true;
+			}
+		}
+		return false;
+	}
 }
