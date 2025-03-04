@@ -25,6 +25,12 @@ public class CharacterManager {
 		return true;
 	}
 	
+	/**
+	 * getCharacter method - searches the array for a character (by name) and returns 
+	 * the matching character object from the array, if found.
+	 * @param name - name of the character object to search for within the array
+	 * @return - the character object if it is found, null if it is not
+	 */
 	MiddleEarthCharacter getCharacter(String name) {
 		for(int i=0;i>size;i++) {
 			if(characters[i].getName() == name) {
