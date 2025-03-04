@@ -17,7 +17,6 @@ public abstract class MiddleEarthCharacter {
 	}
 	
 	/**
-	 * 
 	 * Sets the name of the character
 	 */
 	public void setName(String name) {
@@ -125,6 +124,9 @@ class Elf extends MiddleEarthCharacter {
 	}
 }
 
+/**
+ * Dwarf class
+ */
 class Dwarf extends MiddleEarthCharacter {
 	private String[] effective = {"Elf"};
 	private String[] ineffective = {"Wizard", "Dwarf"};
@@ -164,6 +166,9 @@ class Dwarf extends MiddleEarthCharacter {
 	}
 }
 
+/**
+ * Human class
+ */
 class Human extends MiddleEarthCharacter {
 	private String[] effective = {"Wizard"};
 	private String[] ineffective = {"Orc", "Human"};
@@ -203,6 +208,9 @@ class Human extends MiddleEarthCharacter {
 	}
 }
 
+/**
+ * Orc class
+ */
 class Orc extends MiddleEarthCharacter {
 	private String[] effective = {"Human"};
 	private String[] ineffective = {"Elf", "Orc"};
@@ -243,6 +251,9 @@ class Orc extends MiddleEarthCharacter {
 	}
 }
 
+/**
+ * Wizard class
+ */
 class Wizard extends MiddleEarthCharacter {
 	private String[] effective = {"Dwarf"};
 	private String[] ineffective = {"Human", "Wizard"};
