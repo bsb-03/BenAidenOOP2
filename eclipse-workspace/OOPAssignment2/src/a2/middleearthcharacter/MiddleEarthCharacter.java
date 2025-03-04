@@ -60,7 +60,7 @@ public abstract class MiddleEarthCharacter {
 	 * @return
 	 */
 	public static MiddleEarthCharacter newMiddleEarthCharacter(String name, double health, double power) {
-		MiddleEarthCharacter newChar = new MiddleEarthCharacter;
+		MiddleEarthCharacter newChar = new MiddleEarthCharacter();
 		
 		newChar.name = name;
 		newChar.health = health;
@@ -82,4 +82,97 @@ public abstract class MiddleEarthCharacter {
 	 */
 	abstract String getRace();
 	
+	void displayInfo() {
+		System.out.println("Name: " + this.name + "Health: " + this.health + "Power: " + this.power);
+	}
+}
+
+/**
+ * Elf class
+ */
+class Elf extends MiddleEarthCharacter {
+
+	@Override
+	boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/**
+	 * Override for getRace()
+	 */
+	@Override
+	String getRace() {
+		return "Elf";
+	}
+}
+
+class Dwarf extends MiddleEarthCharacter {
+
+	@Override
+	boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/**
+	 * Override for getRace()
+	 */
+	@Override
+	String getRace() {
+		return "Dwarf";
+	}
+}
+
+class Human extends MiddleEarthCharacter {
+
+	@Override
+	boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/**
+	 * Override for getRace()
+	 */
+	@Override
+	String getRace() {
+		return "Human";
+	}
+}
+
+class Orc extends MiddleEarthCharacter {
+
+	@Override
+	boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	/**
+	 * Override for getRace()
+	 */
+	@Override
+	String getRace() {
+		return "Orc";
+	}
+}
+
+class Wizard extends MiddleEarthCharacter {
+
+	@Override
+	boolean attack(MiddleEarthCharacter target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	/**
+	 * Override for getRace()
+	 */
+	@Override
+	String getRace() {
+		return "Wizard";
+	}
 }
