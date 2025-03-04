@@ -53,20 +53,16 @@ public abstract class MiddleEarthCharacter {
 	}
 	
 	/**
-	 * Parameterized constructor
+	 * Constructor
 	 * @param name
 	 * @param health
 	 * @param power
 	 * @return
 	 */
-	public static MiddleEarthCharacter newMiddleEarthCharacter(String name, double health, double power) {
-		MiddleEarthCharacter newChar = new MiddleEarthCharacter();
-		
-		newChar.name = name;
-		newChar.health = health;
-		newChar.power = power;
-		
-		return newChar;
+	public  MiddleEarthCharacter() {
+		this.name = "Unknown";
+		this.health = 0.0;
+		this.power = 0.0;
 	}
 	
 	/**
@@ -94,6 +90,9 @@ class Elf extends MiddleEarthCharacter {
 	private String[] effective = {"Orc"};
 	private String[] ineffective = {"Elf", "Dwarf"};
 	
+	/**
+	 * Attack implementation
+	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
 		double dmgMult = 1.0;
@@ -130,10 +129,30 @@ class Dwarf extends MiddleEarthCharacter {
 	private String[] effective = {"Elf"};
 	private String[] ineffective = {"Wizard", "Dwarf"};
 	
+	/**
+	 * Attack implementation
+	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		double dmgMult = 1.0;
+		
+		for(int i = 0; i < 2; i++) {
+			if(ineffective[i] == target.getRace()) {
+				return false;
+			}
+		}
+		
+		if(effective[0] == target.getRace()) {
+			dmgMult = 1.5;
+		}
+		
+		double damageToDeal = this.getPower() * dmgMult;
+		
+		double targetCurHp = target.getHealth();
+		
+		target.setHealth(targetCurHp - damageToDeal);
+		
+		return true;
 	}
 	
 	/**
@@ -149,10 +168,30 @@ class Human extends MiddleEarthCharacter {
 	private String[] effective = {"Wizard"};
 	private String[] ineffective = {"Orc", "Human"};
 	
+	/**
+	 * Attack implementation
+	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		double dmgMult = 1.0;
+		
+		for(int i = 0; i < 2; i++) {
+			if(ineffective[i] == target.getRace()) {
+				return false;
+			}
+		}
+		
+		if(effective[0] == target.getRace()) {
+			dmgMult = 1.5;
+		}
+		
+		double damageToDeal = this.getPower() * dmgMult;
+		
+		double targetCurHp = target.getHealth();
+		
+		target.setHealth(targetCurHp - damageToDeal);
+		
+		return true;
 	}
 
 	/**
@@ -168,10 +207,30 @@ class Orc extends MiddleEarthCharacter {
 	private String[] effective = {"Human"};
 	private String[] ineffective = {"Elf", "Orc"};
 	
+	/**
+	 * Attack implementation
+	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		double dmgMult = 1.0;
+		
+		for(int i = 0; i < 2; i++) {
+			if(ineffective[i] == target.getRace()) {
+				return false;
+			}
+		}
+		
+		if(effective[0] == target.getRace()) {
+			dmgMult = 1.5;
+		}
+		
+		double damageToDeal = this.getPower() * dmgMult;
+		
+		double targetCurHp = target.getHealth();
+		
+		target.setHealth(targetCurHp - damageToDeal);
+		
+		return true;
 	}
 
 	
@@ -188,10 +247,30 @@ class Wizard extends MiddleEarthCharacter {
 	private String[] effective = {"Dwarf"};
 	private String[] ineffective = {"Human", "Wizard"};
 	
+	/**
+	 * Attack implementation
+	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		double dmgMult = 1.0;
+		
+		for(int i = 0; i < 2; i++) {
+			if(ineffective[i] == target.getRace()) {
+				return false;
+			}
+		}
+		
+		if(effective[0] == target.getRace()) {
+			dmgMult = 1.5;
+		}
+		
+		double damageToDeal = this.getPower() * dmgMult;
+		
+		double targetCurHp = target.getHealth();
+		
+		target.setHealth(targetCurHp - damageToDeal);
+		
+		return true;
 	}
 
 	
