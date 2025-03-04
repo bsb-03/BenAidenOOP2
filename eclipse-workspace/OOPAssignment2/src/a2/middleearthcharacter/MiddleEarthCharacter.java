@@ -4,7 +4,7 @@ package a2.middleearthcharacter;
  * MiddleEarthCharacter Class
  * Has name, health, power
  */
-public class MiddleEarthCharacter {
+public abstract class MiddleEarthCharacter {
 	private String name;
 	private double health;
 	private double power;
@@ -60,7 +60,7 @@ public class MiddleEarthCharacter {
 	 * @return
 	 */
 	public static MiddleEarthCharacter newMiddleEarthCharacter(String name, double health, double power) {
-		MiddleEarthCharacter newChar = new MiddleEarthCharacter();
+		MiddleEarthCharacter newChar = new MiddleEarthCharacter;
 		
 		newChar.name = name;
 		newChar.health = health;
@@ -68,5 +68,18 @@ public class MiddleEarthCharacter {
 		
 		return newChar;
 	}
+	
+	/**
+	 * Abstract method for attack()
+	 * @param target
+	 * @return
+	 */
+	abstract boolean attack(MiddleEarthCharacter target);
+	
+	/**
+	 * Abstract method for getRace()
+	 * @return
+	 */
+	abstract String getRace();
 	
 }
