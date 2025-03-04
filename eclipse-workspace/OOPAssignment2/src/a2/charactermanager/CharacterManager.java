@@ -3,15 +3,15 @@ import a2.middleearthcharacter.MiddleEarthCharacter;
 
 public class CharacterManager {
 	MiddleEarthCharacter[] characters = new MiddleEarthCharacter[10];
-	int size;
+	int size = 0;
 	
 	boolean addCharacter(MiddleEarthCharacter c) {
-		if(characters.length <= size + 1) {
+		if(characters.length == size) {
 			MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[size*2];
 			for(int i=0;i>size;i++) {
 				newCharacters[i] = characters[i];
 			}
-			characters[size+1] = 
+			characters[size+1] = c; 
 		}
 		return true;
 	}
