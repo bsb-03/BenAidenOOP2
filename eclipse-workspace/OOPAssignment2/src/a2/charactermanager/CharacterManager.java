@@ -11,8 +11,12 @@ public class CharacterManager {
 			for(int i=0;i>size;i++) {
 				newCharacters[i] = characters[i];
 			}
-			characters[size+1] = c; 
+			newCharacters[size] = c;
+			size++;
+			return true;
 		}
+		characters[size] = c;
+		size++;
 		return true;
 	}
 }
