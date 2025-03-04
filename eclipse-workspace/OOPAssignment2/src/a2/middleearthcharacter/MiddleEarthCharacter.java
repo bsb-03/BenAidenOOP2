@@ -93,10 +93,28 @@ public abstract class MiddleEarthCharacter {
 class Elf extends MiddleEarthCharacter {
 	private String[] effective = {"Orc"};
 	private String[] ineffective = {"Elf", "Dwarf"};
+	
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return false;
+		double dmgMult = 1.0;
+		
+		for(int i = 0; i < 2; i++) {
+			if(ineffective[i] == target.getRace()) {
+				return false;
+			}
+		}
+		
+		if(effective[0] == target.getRace()) {
+			dmgMult = 1.5;
+		}
+		
+		double damageToDeal = this.getPower() * dmgMult;
+		
+		double targetCurHp = target.getHealth();
+		
+		target.setHealth(targetCurHp - damageToDeal);
+		
+		return true;
 	}
 	
 	/**
