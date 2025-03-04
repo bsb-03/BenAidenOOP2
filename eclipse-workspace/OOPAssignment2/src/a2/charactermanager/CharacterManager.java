@@ -5,6 +5,11 @@ public class CharacterManager {
 	MiddleEarthCharacter[] characters = new MiddleEarthCharacter[10];
 	int size = 0;
 	
+	/**
+	 * addCharacter method to add character objects to the array of characters.
+	 * @param c - character object to be added to the array
+	 * @return true if successful
+	 */
 	boolean addCharacter(MiddleEarthCharacter c) {
 		if(characters.length == size) {
 			MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[size*2];
@@ -54,5 +59,10 @@ public class CharacterManager {
 			}
 		}
 		return false;
+	}
+	
+	void displayAllCharacters() {
+		MiddleEarthCharacter.displayInfo();
+		
 	}
 }
