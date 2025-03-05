@@ -69,7 +69,7 @@ public abstract class MiddleEarthCharacter {
 	 * @param target
 	 * @return
 	 */
-	abstract boolean attack(MiddleEarthCharacter target);
+	public abstract boolean attack(MiddleEarthCharacter target);
 	
 	/**
 	 * Abstract method for getRace()
