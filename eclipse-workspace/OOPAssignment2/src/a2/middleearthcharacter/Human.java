@@ -9,6 +9,7 @@ public class Human extends MiddleEarthCharacter {
 	
 	/**
 	 * Attack implementation
+	 * @param target - The target character object that the attack is being directed towards
 	 */
 	@Override
 	boolean attack(MiddleEarthCharacter target) {
