@@ -65,6 +65,58 @@ public class Menu {
 		}
 	}
 	
+	public static void viewChars(Scanner s) {
+		(MiddleEarthCouncil.getCharacterManager()).displayAllCharacters();
+		System.out.println("Enter anything to continue:");
+		s.nextLine();
+	}
+
+	public static void updateChar(Scanner s) {
+		MiddleEarthCharacter charToUpdate = null;
+		String uInput;
+		boolean flag = false;
+		while(!flag) {
+			System.out.println("What is the name of the character you want to update?:");
+			uInput = s.nextLine();
+			charToUpdate = MiddleEarthCouncil.getCharacterManager().getCharacter(uInput);
+			if(charToUpdate != null) {
+				flag = true;
+			}
+			else {
+				System.out.println("This character does not exist!");
+			}
+		}
+		System.out.println("What would you like the new name to be?");
+		String uName = s.nextLine();
+		
+		System.out.println("What would you like the new health to be?");
+		double uHealth = Double.parseDouble(s.nextLine());
+		
+		System.out.println("What would you like the new power to be?");
+		double uPower = Double.parseDouble(s.nextLine());
+		
+		MiddleEarthCouncil.getCharacterManager().updateCharacter(charToUpdate, uName, uHealth, uPower);
+	}
+	
+	public static void deleteChar(Scanner s) {
+		MiddleEarthCharacter charToUpdate = null;
+		String uInput;
+		boolean flag = false;
+		while(!flag) {
+			System.out.println("What is the name of the character you want to delete?:");
+			uInput = s.nextLine();
+			charToUpdate = MiddleEarthCouncil.getCharacterManager().getCharacter(uInput);
+			if(charToUpdate != null) {
+				flag = true;
+			}
+			else {
+				System.out.println("This character does not exist!");
+			}
+		}
+		
+		MiddleEarthCouncil.getCharacterManager().deleteCharacter(charToUpdate);
+	}
+	
 	public static void printMenu() {
 		System.out.println("---MENU---\n");
 		
@@ -93,21 +145,23 @@ public class Menu {
 					newCharMenu(scanner);
 					break;
 				case 2:
-					//viewChars();
+					viewChars(scanner);
 					break;
 				case 3:
-					//updateChar();
+					updateChar(scanner);
 					break;
 				case 4:
-					//deleteChar();
+					deleteChar(scanner);
 					break;
 				case 5:
 					//execAttackActions();
 					break;
 				case 6:
 					exitFlag = true;
-					break
+					break;
 			}
 		}
+		
+		scanner.close();
 	}
 }
