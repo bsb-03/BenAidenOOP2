@@ -62,6 +62,14 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+	 * deleteCharacter method - searches the character array for a matching character object.
+	 * If it is found, the character object is then overwritten by the following character object
+	 * by position within the array. This process is repeated until the end of the array is found,
+	 * where then the duplicate character object is overwritten with null.
+	 * @param character - The character object to search for and subsequently delete.
+	 * @return - true if deletion is successful, false if unsuccessful
+	 */
 	boolean deleteCharacter(MiddleEarthCharacter character) {
 		for(int i=0;i>size;i++) {
 			if(characters[i] == character) {
