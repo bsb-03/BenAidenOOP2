@@ -117,6 +117,45 @@ public class Menu {
 		MiddleEarthCouncil.getCharacterManager().deleteCharacter(charToUpdate);
 	}
 	
+	public static void execAttackActions(Scanner s) {
+		MiddleEarthCharacter charToAttack = null;
+		String uInput;
+		boolean flag = false;
+		while(!flag) {
+			System.out.println("What is the name of the character you want to attack with?:");
+			uInput = s.nextLine();
+			charToAttack = MiddleEarthCouncil.getCharacterManager().getCharacter(uInput);
+			if(charToAttack != null) {
+				flag = true;
+			}
+			else {
+				System.out.println("This character does not exist!");
+			}
+		}
+		
+		MiddleEarthCharacter charToDefend = null;
+		flag = false;
+		while(!flag) {
+			System.out.println("What is the name of the character you want to defend?:");
+			uInput = s.nextLine();
+			charToDefend = MiddleEarthCouncil.getCharacterManager().getCharacter(uInput);
+			if(charToDefend != null) {
+				flag = true;
+			}
+			else {
+				System.out.println("This character does not exist!");
+			}
+		}
+		
+		if(!(charToAttack.attack(charToDefend))) {
+			System.out.println("The attack was ineffective!");
+		}
+		
+		else {
+			System.out.println("The attack was successful!");
+		}
+	}
+	
 	public static void printMenu() {
 		System.out.println("---MENU---\n");
 		

@@ -12,7 +12,7 @@ public class Wizard extends MiddleEarthCharacter {
 	 * @param target - The target character object that the attack is being directed towards
 	 */
 	@Override
-	boolean attack(MiddleEarthCharacter target) {
+	public boolean attack(MiddleEarthCharacter target) {
 		double dmgMult = 1.0;
 		
 		for(int i = 0; i < 2; i++) {
