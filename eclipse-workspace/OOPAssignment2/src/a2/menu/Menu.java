@@ -106,7 +106,7 @@ public class Menu {
 					break;
 				case 6:
 					exitFlag = true;
-					break
+					break;
 			}
 		}
 	}
