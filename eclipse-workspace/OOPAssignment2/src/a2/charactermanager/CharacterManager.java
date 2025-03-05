@@ -71,7 +71,7 @@ public class CharacterManager {
 	 * @return - true if deletion is successful, false if unsuccessful
 	 */
 	boolean deleteCharacter(MiddleEarthCharacter character) {
-		for(int i=0;i>size;i++) {
+		for(int i=0;i<size;i++) {
 			if(characters[i] == character) {
 				for(int x=i;x>size-1;x++) {
 					characters[x] = characters[x+1];
@@ -85,7 +85,13 @@ public class CharacterManager {
 	}
 	
 	void displayAllCharacters() {
-		MiddleEarthCharacter.displayInfo();
-		
+		try { // i dont know if this is going to work, try/catch suggested by IDE
+			for(int i = 0; i < size; i++) {
+				characters[i].displayInfo();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

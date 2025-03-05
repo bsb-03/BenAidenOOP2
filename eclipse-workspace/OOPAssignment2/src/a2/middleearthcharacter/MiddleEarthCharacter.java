@@ -77,7 +77,7 @@ public abstract class MiddleEarthCharacter {
 	 */
 	abstract String getRace();
 	
-	void displayInfo() {
+	public void displayInfo() {
 		System.out.println("Name: " + this.name + "Health: " + this.health + "Power: " + this.power);
 	}
 }
