@@ -15,7 +15,7 @@ public class CharacterManager {
 	public boolean addCharacter(MiddleEarthCharacter c) {
 		if(characters.length == size) {
 			MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[size*2];
-			for(int i=0;i>size;i++) {
+			for(int i=0;i<size;i++) {
 				newCharacters[i] = characters[i];
 			}
 			newCharacters[size] = c;
@@ -54,7 +54,7 @@ public class CharacterManager {
 	 * @return - return true if attribute update is successful, false if not
 	 */
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, double health, double power) {
-		for(int i=0;i>size;i++) {
+		for(int i=0;i<size;i++) {
 			if(characters[i] == character) {
 				characters[i].setName(name);
 				characters[i].setHealth(health);
