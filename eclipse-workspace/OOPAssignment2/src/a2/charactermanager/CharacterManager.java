@@ -41,6 +41,15 @@ public class CharacterManager {
 		return null;
 	}
 	
+	/**
+	 * updateCharacter method - Searches for a character object in the array of characters. If a matching
+	 * character object is found, then it has the name, health, and power attributes modified.
+	 * @param character - character object to search for within the array
+	 * @param name - new name for the character object
+	 * @param health - new health value for the character object
+	 * @param power - new power value for the character object
+	 * @return - return true if attribute update is successful, false if not
+	 */
 	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
 		for(int i=0;i>size;i++) {
 			if(characters[i] == character) {
