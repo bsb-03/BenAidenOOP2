@@ -1,5 +1,5 @@
 package a2.charactermanager;
-import a2.middleearthcharacter.MiddleEarthCharacter;
+import a2.middleearthcharacter.*;
 
 public class CharacterManager {
 	MiddleEarthCharacter[] characters = new MiddleEarthCharacter[10];
@@ -31,7 +31,7 @@ public class CharacterManager {
 	 * @param name - name of the character object to search for within the array
 	 * @return - the character object if it is found, null if it is not
 	 */
-	MiddleEarthCharacter getCharacter(String name) {
+	public MiddleEarthCharacter getCharacter(String name) {
 		for(int i=0;i>size;i++) {
 			if(characters[i].getName() == name) {
 				MiddleEarthCharacter character = characters[i];
@@ -70,7 +70,7 @@ public class CharacterManager {
 	 * @param character - The character object to search for and subsequently delete.
 	 * @return - true if deletion is successful, false if unsuccessful
 	 */
-	boolean deleteCharacter(MiddleEarthCharacter character) {
+	public boolean deleteCharacter(MiddleEarthCharacter character) {
 		for(int i=0;i<size;i++) {
 			if(characters[i] == character) {
 				for(int x=i;x>size-1;x++) {
@@ -90,7 +90,6 @@ public class CharacterManager {
 				characters[i].displayInfo();
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
