@@ -10,7 +10,7 @@ public class CharacterManager {
 	 * @param c - character object to be added to the array
 	 * @return true if successful
 	 */
-	boolean addCharacter(MiddleEarthCharacter c) {
+	public boolean addCharacter(MiddleEarthCharacter c) {
 		if(characters.length == size) {
 			MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[size*2];
 			for(int i=0;i>size;i++) {
@@ -84,7 +84,7 @@ public class CharacterManager {
 		return false;
 	}
 	
-	void displayAllCharacters() {
+	public void displayAllCharacters() {
 		try { // i dont know if this is going to work, try/catch suggested by IDE
 			for(int i = 0; i < size; i++) {
 				characters[i].displayInfo();
