@@ -1,4 +1,6 @@
 package a2.charactermanager;
+import java.util.Objects;
+
 import a2.middleearthcharacter.*;
 
 public class CharacterManager {
@@ -32,15 +34,16 @@ public class CharacterManager {
 	 * @return - the character object if it is found, null if it is not
 	 */
 	public MiddleEarthCharacter getCharacter(String name) {
-		for(int i=0;i>size;i++) {
-			if(characters[i].getName() == name) {
+		for(int i=0;i<size;i++) {
+			System.out.println(characters[i].getName());
+			if(Objects.equals(characters[i].getName(), name)) {
 				MiddleEarthCharacter character = characters[i];
 				return character;
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * updateCharacter method - Searches for a character object in the array of characters. If a matching
 	 * character object is found, then it has the name, health, and power attributes modified.

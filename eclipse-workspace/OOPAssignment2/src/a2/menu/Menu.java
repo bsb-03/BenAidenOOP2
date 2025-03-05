@@ -2,6 +2,8 @@ package a2.menu;
 import a2.charactermanager.*;
 import a2.middleearthcharacter.*;
 import a2.middleearthcouncil.*;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
@@ -13,11 +15,11 @@ public class Menu {
 		while(!flag) {
 			System.out.println("Enter your character's name: ");
 			uName = s.nextLine();
-			if(uName != null) {
+			if(uName != null && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
 				flag = true;
 			}
 			else {
-				System.out.println("Please enter a valid name.");
+				System.out.println("Please enter a valid, non-duplicate name.");
 			}
 		}
 		flag = false;
@@ -25,11 +27,12 @@ public class Menu {
 		while(!flag) {
 			System.out.println("Enter your character's race (Elf, Dwarf, Human, Orc, Wizard): ");
 			uRace = s.nextLine();
-			if(uRace != "Elf" || uRace != "Dwarf" || uRace != "Human" || uRace != "Orc" || uRace != "Wizard") {
-				System.out.println("Please enter a valid race.");
+			System.out.println(uRace);
+			if(Objects.equals(uRace, "Elf") || Objects.equals(uRace, "Dwarf") || Objects.equals(uRace, "Human") || Objects.equals(uRace, "Orc") || Objects.equals(uRace, "Wizard")) {
+				flag = true;
 			}
 			else {
-				flag = true;
+				System.out.println("Please enter a valid race.");
 			}
 		}
 		flag = false;
