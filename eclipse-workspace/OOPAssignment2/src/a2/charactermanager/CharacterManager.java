@@ -1,6 +1,10 @@
 package a2.charactermanager;
 import a2.middleearthcharacter.*;
 
+/**
+ * CharacterManager class. Contains an array of character objects and an integer field to keep track of how many
+ * objects are populating the array.
+ */
 public class CharacterManager {
 	MiddleEarthCharacter[] characters = new MiddleEarthCharacter[10];
 	int size = 0;
@@ -84,6 +88,9 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+	 * displayAllCharacters method - displays all characters within the character array.
+	 */
 	public void displayAllCharacters() {
 		try { // i dont know if this is going to work, try/catch suggested by IDE
 			for(int i = 0; i < size; i++) {
