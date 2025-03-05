@@ -54,8 +54,13 @@ public class CharacterManager {
 	 * @param power - new power value for the character object
 	 * @return - return true if attribute update is successful, false if not
 	 */
+<<<<<<< HEAD
+	public boolean updateCharacter (MiddleEarthCharacter character, String name, double health, double power) {
+		for(int i=0;i>size;i++) {
+=======
 	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
 		for(int i=0;i<size;i++) {
+>>>>>>> a7c5e72e054d27e6e3f432bd918465b91fcbc3bf
 			if(characters[i] == character) {
 				characters[i].setName(name);
 				characters[i].setHealth(health);
