@@ -6,20 +6,56 @@ import java.util.Scanner;
 
 public class Menu {
 	public static void newCharMenu(Scanner s) {
-		String uName, uRace;
-		double uHealth, uPower;
+		String uName = null, uRace = null;
+		double uHealth = 0, uPower = 0.0;
+		boolean flag = false;
 		
-		System.out.println("Enter your character's name: ");
-		uName = s.nextLine();
+		while(!flag) {
+			System.out.println("Enter your character's name: ");
+			uName = s.nextLine();
+			if(uName != null) {
+				flag = true;
+			}
+			else {
+				System.out.println("Please enter a valid name.");
+			}
+		}
+		flag = false;
 		
-		System.out.println("Enter your character's race (Elf, Dwarf, Human, Orc, Wizard): ");
-		uRace = s.nextLine();
+		while(!flag) {
+			System.out.println("Enter your character's race (Elf, Dwarf, Human, Orc, Wizard): ");
+			uRace = s.nextLine();
+			if(uRace != "Elf" || uRace != "Dwarf" || uRace != "Human" || uRace != "Orc" || uRace != "Wizard") {
+				System.out.println("Please enter a valid race.");
+			}
+			else {
+				flag = true;
+			}
+		}
+		flag = false;
 		
-		System.out.println("Enter your character's health: ");
-		uHealth = Double.parseDouble(s.nextLine());
+		while(!flag) {
+			System.out.println("Enter your character's health: ");
+			uHealth = Double.parseDouble(s.nextLine());
+			if(uHealth < 0.0) {
+				System.out.println("Please enter a positive number.");
+			}
+			else {
+				flag = true;
+			}
+		}
+		flag = false;
 		
-		System.out.println("Enter your character's power: ");
-		uPower = Double.parseDouble(s.nextLine());
+		while(!flag) {
+			System.out.println("Enter your character's power: ");
+			uPower = Double.parseDouble(s.nextLine());
+			if(uPower < 0.0) {
+				System.out.println("Please enter a positive number.");
+			}
+			else {
+				flag = true;
+			}
+		}
 		
 		switch(uRace) {
 			case "Elf":
