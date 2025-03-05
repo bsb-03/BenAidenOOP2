@@ -1,10 +1,9 @@
 package a2.middleearthcouncil;
 import a2.charactermanager.*;
 
-class MiddleEarthCouncil {
+public class MiddleEarthCouncil {
 	private static MiddleEarthCouncil instance;
-	
-	private CharacterManager manager;
+	private static CharacterManager manager;
 	
 	public static MiddleEarthCouncil getInstance() {
 		if (instance == null)
@@ -16,7 +15,7 @@ class MiddleEarthCouncil {
 		manager = new CharacterManager();
 	}
 	
-	public CharacterManager getCharacterManager() {
-		return this.manager;
+	public static CharacterManager getCharacterManager() {
+		return manager;
 	}
 }
