@@ -11,7 +11,7 @@ public class Menu {
 		String uName = null, uRace = null;
 		double uHealth = 0, uPower = 0.0;
 		boolean flag = false;
-		
+		// prompt the user for a character name and check if it is null or a duplicate.
 		while(!flag) {
 			System.out.println("Enter your character's name: ");
 			uName = s.nextLine();
@@ -23,7 +23,7 @@ public class Menu {
 			}
 		}
 		flag = false;
-		
+		// prompt the user to enter a race for the character, and throw an error if an invalid race is entered.
 		while(!flag) {
 			System.out.println("Enter your character's race (Elf, Dwarf, Human, Orc, Wizard): ");
 			uRace = s.nextLine();
@@ -36,7 +36,7 @@ public class Menu {
 			}
 		}
 		flag = false;
-		
+		// prompt the user to enter a health value, which must be positive
 		while(!flag) {
 			System.out.println("Enter your character's health: ");
 			uHealth = Double.parseDouble(s.nextLine());
@@ -48,7 +48,7 @@ public class Menu {
 			}
 		}
 		flag = false;
-		
+		//prompt the user to enter a power value, which must be positive
 		while(!flag) {
 			System.out.println("Enter your character's power: ");
 			uPower = Double.parseDouble(s.nextLine());
@@ -59,7 +59,7 @@ public class Menu {
 				flag = true;
 			}
 		}
-		
+		// switch case to create a new character object depending on the race chosen
 		switch(uRace) {
 			case "Elf":
 				Elf newElf = new Elf();
@@ -113,8 +113,11 @@ public class Menu {
 	public static void updateChar(Scanner s) {
 		MiddleEarthCharacter charToUpdate = null;
 		String uInput;
+		String uName = null;
+		Double uHealth = null, uPower = null;
 		boolean flag = false;
 		while(!flag) {
+			// get the name of the character to update and check if it really exists
 			System.out.println("What is the name of the character you want to update?:");
 			uInput = s.nextLine();
 			charToUpdate = MiddleEarthCouncil.getCharacterManager().getCharacter(uInput);
@@ -125,14 +128,43 @@ public class Menu {
 				System.out.println("This character does not exist!");
 			}
 		}
-		System.out.println("What would you like the new name to be?");
-		String uName = s.nextLine();
+		flag = false;
+		// set the new name and check for errors/duplicates
+		while(!flag) {
+			System.out.println("What would you like the new name to be?");
+			uName = s.nextLine();
+			if(uName != null && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
+				flag = true;
+			}
+			else {
+				System.out.println("Please enter a valid, non-duplicate name.");
+			}
+		}
+		flag = false;
+		// set the new health and make sure it is a positive value
+		while(!flag) {
+			System.out.println("What would you like the new health to be?: ");
+			uHealth = Double.parseDouble(s.nextLine());
+			if(uHealth < 0.0) {
+				System.out.println("Please enter a positive number.");
+			}
+			else {
+				flag = true;
+			}
+		}
+		flag = false;
 		
-		System.out.println("What would you like the new health to be?");
-		double uHealth = Double.parseDouble(s.nextLine());
-		
-		System.out.println("What would you like the new power to be?");
-		double uPower = Double.parseDouble(s.nextLine());
+		while(!flag) {
+			System.out.println("What would you like the new power to be?");
+			uPower = Double.parseDouble(s.nextLine());
+			if(uPower < 0.0) {
+				System.out.println("Please enter a positive number.");
+			}
+			else {
+				flag = true;
+			}
+		}
+		flag = false;
 		
 		MiddleEarthCouncil.getCharacterManager().updateCharacter(charToUpdate, uName, uHealth, uPower);
 	}
