@@ -39,7 +39,13 @@ public class Menu {
 		// prompt the user to enter a health value, which must be positive
 		while(!flag) {
 			System.out.println("Enter your character's health: ");
-			uHealth = Double.parseDouble(s.nextLine());
+			try {
+				uHealth = Double.parseDouble(s.nextLine());
+			}
+			catch (NumberFormatException ex) {
+				System.out.println(uHealth + " is not a valid value!");
+				continue;
+			}	
 			if(uHealth < 0.0) {
 				System.out.println("Please enter a positive number.");
 			}
@@ -51,7 +57,14 @@ public class Menu {
 		//prompt the user to enter a power value, which must be positive
 		while(!flag) {
 			System.out.println("Enter your character's power: ");
-			uPower = Double.parseDouble(s.nextLine());
+			try {
+				uPower = Double.parseDouble(s.nextLine());
+			}
+			catch (NumberFormatException ex) {
+				System.out.println(uPower + " is not a valid value!");
+				continue;
+			}
+			
 			if(uPower < 0.0) {
 				System.out.println("Please enter a positive number.");
 			}
@@ -144,7 +157,13 @@ public class Menu {
 		// set the new health and make sure it is a positive value
 		while(!flag) {
 			System.out.println("What would you like the new health to be?: ");
-			uHealth = Double.parseDouble(s.nextLine());
+			try {
+				uHealth = Double.parseDouble(s.nextLine());
+			}
+			catch (NumberFormatException ex) {
+				System.out.println(uHealth + " is not a valid value!");
+				continue;
+			}
 			if(uHealth < 0.0) {
 				System.out.println("Please enter a positive number.");
 			}
@@ -153,10 +172,16 @@ public class Menu {
 			}
 		}
 		flag = false;
-		
+		// set the new power and make sure it is a positive value
 		while(!flag) {
 			System.out.println("What would you like the new power to be?");
-			uPower = Double.parseDouble(s.nextLine());
+			try {
+				uPower = Double.parseDouble(s.nextLine());
+			}
+			catch (NumberFormatException ex) {
+				System.out.println(uPower + " is not a valid value!");
+				continue;
+			}
 			if(uPower < 0.0) {
 				System.out.println("Please enter a positive number.");
 			}
@@ -249,7 +274,13 @@ public class Menu {
 			printMenu();
 			
 			System.out.println(">>> ");
-			userChoice = Integer.parseInt(scanner.nextLine());
+			try {
+				userChoice = Integer.parseInt(scanner.nextLine());
+			}
+			catch (NumberFormatException ex) {
+				System.out.println(userChoice + " is not a valid choice!");
+				continue;
+			}
 			switch(userChoice) {
 				case 1: 
 					newCharMenu(scanner);
@@ -264,7 +295,7 @@ public class Menu {
 					deleteChar(scanner);
 					break;
 				case 5:
-					//execAttackActions();
+					execAttackActions(scanner);
 					break;
 				case 6:
 					exitFlag = true;
