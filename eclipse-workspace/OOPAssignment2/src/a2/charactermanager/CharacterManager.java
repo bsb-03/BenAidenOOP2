@@ -87,8 +87,12 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+	 * displayAllCharacter method - iterates through the characters array and displays the information from each character
+	 * object that is populating the array.
+	 */
 	public void displayAllCharacters() {
-		try { // i dont know if this is going to work, try/catch suggested by IDE
+		try {
 			for(int i = 0; i < size; i++) {
 				characters[i].displayInfo();
 			}
