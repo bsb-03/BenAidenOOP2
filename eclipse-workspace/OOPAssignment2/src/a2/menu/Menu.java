@@ -1,13 +1,23 @@
 package a2.menu;
-import a2.charactermanager.*;
 import a2.middleearthcharacter.*;
 import a2.middleearthcouncil.*;
-
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Menu class - Menu-driven interface which allows the user to interact with the character array. The user may 
+ * add, delete, update, execute attacks, and view all characters within the array.
+ */
 public class Menu {
+	/**
+	 * newCharMenu method to prompt the user for information about the character object they wish to create and subsequently
+	 * add to the character array. The user must input a character name, race, HP value, and a power value. Duplicate character
+	 * names are not allowed, nor are negative values within the HP and power fields. The user must enter a valid race and the
+	 * character name cannot be blank.
+	 * @param s - Scanner parameter
+	 */
 	public static void newCharMenu(Scanner s) {
+		// fields to be populated by user input
 		String uName = null, uRace = null;
 		double uHealth = 0, uPower = 0.0;
 		boolean flag = false;
@@ -116,13 +126,24 @@ public class Menu {
 				break;
 		}
 	}
-	
+	/**
+	 * viewChars method to display all characters within the characters array. Calls the displayAllCharacters() method
+	 * from the CharacterManager class.
+	 * @param s - Scanner parameter
+	 */
 	public static void viewChars(Scanner s) {
 		(MiddleEarthCouncil.getCharacterManager()).displayAllCharacters();
 		System.out.println("Enter anything to continue:");
 		s.nextLine();
 	}
-
+	
+	/**
+	 * updateChar method to update character objects within the character array. This method will prompt the user to enter a 
+	 * character name, which will then be passed to the getCharacter() method from the CharacterManager class. If a matching 
+	 * character is found within the array, the user is then prompted to enter a valid name, HP value, and power value. Those 
+	 * values will then be set to populate the respective fields within the character object.
+	 * @param s - Scanner parameter
+	 */
 	public static void updateChar(Scanner s) {
 		MiddleEarthCharacter charToUpdate = null;
 		String uInput;
@@ -190,10 +211,16 @@ public class Menu {
 			}
 		}
 		flag = false;
-		
+		//call updateCharacter() method and pass user input as parameters
 		MiddleEarthCouncil.getCharacterManager().updateCharacter(charToUpdate, uName, uHealth, uPower);
 	}
 	
+	/**
+	 * deleteChar method to delete a character object within the character array. The method will prompt the user
+	 * for a character name which will then be passed to the getCharacter() method. If a matching character is found, it
+	 * will be deleted.
+	 * @param s - Scanner parameter
+	 */
 	public static void deleteChar(Scanner s) {
 		MiddleEarthCharacter charToUpdate = null;
 		String uInput;
@@ -213,6 +240,12 @@ public class Menu {
 		MiddleEarthCouncil.getCharacterManager().deleteCharacter(charToUpdate);
 	}
 	
+	/**
+	 * execAttackActions method to execute attack actions between character objects. The method will prompt the user for 
+	 * a character name to attack with, then a character name to defend with. If both characters are valid, then the
+	 * attack will be attempted, and the output will depend on whether or not it was successful.
+	 * @param s - Scanner parameter
+	 */
 	public static void execAttackActions(Scanner s) {
 		MiddleEarthCharacter charToAttack = null;
 		String uInput;
@@ -252,6 +285,10 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * printMenu method to print initial menu prompts upon running the program. The user will be prompted to add a new
+	 * character, update a character, delete a character, execute attack actions, or exit the program. 
+	 */
 	public static void printMenu() {
 		System.out.println("---MENU---\n");
 		
@@ -262,7 +299,11 @@ public class Menu {
 							+ "5. Execute all attack actions\n"
 							+ "6. Exit");
 	}
-
+	
+	/**
+	 * main method to run the printMenu() function until the user exits the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		boolean exitFlag = false;
 		int userChoice = 0;
