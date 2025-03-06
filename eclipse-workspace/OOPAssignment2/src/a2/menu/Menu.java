@@ -15,7 +15,7 @@ public class Menu {
 		while(!flag) {
 			System.out.println("Enter your character's name: ");
 			uName = s.nextLine();
-			if(uName != null && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
+			if(uName != null && !Objects.equals(uName, "") && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
 				flag = true;
 			}
 			else {
@@ -133,7 +133,7 @@ public class Menu {
 		while(!flag) {
 			System.out.println("What would you like the new name to be?");
 			uName = s.nextLine();
-			if(uName != null && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
+			if(uName != null && !Objects.equals(uName, "") && MiddleEarthCouncil.getCharacterManager().getCharacter(uName) == null) {
 				flag = true;
 			}
 			else {
