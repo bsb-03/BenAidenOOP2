@@ -35,7 +35,6 @@ public class CharacterManager {
 	 */
 	public MiddleEarthCharacter getCharacter(String name) {
 		for(int i=0;i<size;i++) {
-			System.out.println(characters[i].getName());
 			if(Objects.equals(characters[i].getName(), name)) {
 				MiddleEarthCharacter character = characters[i];
 				return character;
