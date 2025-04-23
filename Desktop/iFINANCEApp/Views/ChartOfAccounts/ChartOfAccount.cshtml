@@ -1,0 +1,155 @@
+﻿@model List<iFINANCEApp.Models.MasterAccount>
+
+@{
+    ViewBag.Title = "ChartOfAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChartOfAccount</h2>
+
+<p>This is the Chart of Accounts page.</p>
+
+<button type="button" onclick="openAddModal()">Add</button>
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <h3>Add Account</h3>
+        <form method="post" action="@Url.Action("AddButtonClick", "ChartOfAccounts")">
+            <div>
+                <label>Name</label><br />
+                <input type="text" name="nameInput" required />
+            </div>
+            <div>
+                <label>Opening Amount</label><br />
+                <input type="text" name="openingInput" required />
+            </div>
+            <div>
+                <label>Closing Amount</label><br />
+                <input type="text" name="closingInput" />
+            </div>
+
+            <br />
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeAddModal()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Account</h3>
+        <form method="post" action="@Url.Action("EditButtonClick", "ChartOfAccounts")">
+            <input type="hidden" name="id" required/>
+            <div>
+                <label>Name</label><br />
+                <input type="text" name="nameInput" required />
+            </div>
+            <div>
+                <label>Opening Amount</label><br />
+                <input type="text" name="openingInput" required />
+            </div>
+            <div>
+                <label>Closing Amount</label><br />
+                <input type="text" name="closingInput" />
+            </div>
+
+            <br />
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeEditModal()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<div
+     id = "deleteModal" class="modal">
+    <div class="modal-content">
+        <h3>Delete</h3>
+        <form method="post" action="@Url.Action("DeleteButtonClick", "ChartOfAccounts")">
+            <input type="hidden" name="id" required />
+            <input type="hidden" name="nameInput" required />
+            <p>Are you sure you want to delete <strong id="deleteAccountName"></strong>?</p>
+            <br />
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeDeleteModal()">Cancel</button>
+        </form>
+    </div>
+     
+</div>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td>
+                <button type="button"
+                        onclick='openEditModal("@item.ID", "@item.name", "@item.openingAmount", "@item.closingAmount")'>
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" onclick='openDeleteModal("@item.ID", "@item.name")'>Delete</button>
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Inline JavaScript -->
+<script>
+    function openAddModal() {
+        const modal = document.getElementById("addModal");
+        modal.style.display = "block";
+    }
+
+    function closeAddModal() {
+        document.getElementById("addModal").style.display = "none";
+    }
+
+    function openEditModal(id, name, opening, closing) {
+        const modal = document.getElementById("editModal");
+        modal.querySelector('input[name="id"]').value = id;
+        modal.querySelector('input[name="nameInput"]').value = name;
+        modal.querySelector('input[name="openingInput"]').value = opening;
+        modal.querySelector('input[name="closingInput"]').value = closing;
+        modal.style.display = "block";
+    }
+
+    function closeEditModal() {
+        document.getElementById("editModal").style.display = "none";
+    }
+
+    function openDeleteModal(ID, name) {
+        const modal = document.getElementById("deleteModal");
+        modal.querySelector('input[name="id"]').value = ID;
+        modal.querySelector('input[name="nameInput"]').value = name;
+        modal.style.display = "block";
+    }
+
+    function closeDeleteModal() {
+        document.getElementById("deleteModal").style.display = "none";
+    }
+</script>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 400px;
+        border-radius: 8px;
+    }
+</style>
